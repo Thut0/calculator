@@ -17,24 +17,24 @@
         <td onclick="digitBtnPressed(7)">7</td>
         <td onclick="digitBtnPressed(8)">8</td>
         <td onclick="digitBtnPressed(9)">9</td>
-        <td>X</td>
+        <td onclick="operatorBtnPressed('X')">X</td>
       </tr>
       <tr>
         <td onclick="digitBtnPressed(4)">4</td>
         <td onclick="digitBtnPressed(5)">5</td>
         <td onclick="digitBtnPressed(6)">6</td>
-        <td>-</td>
+        <td onclick="operatorBtnPressed('-')">-</td>
       </tr>
       <tr>
         <td onclick="digitBtnPressed(1)">1</td>
         <td onclick="digitBtnPressed(2)">2</td>
         <td onclick="digitBtnPressed(3)">3</td>
-        <td>+</td>
+        <td onclick="operatorBtnPressed('+')">+</td>
       </tr>
       <tr>
         <td colspan="2" onclick="digitBtnPressed(0)">0</td>
         <td onclick="btnACPressed()">AC</td>
-        <td>/</td>
+        <td onclick="operatorBtnPressed('/')">/</td>
       </tr>
       <tr>
         <td colspan="4">=</td>
@@ -42,6 +42,8 @@
     </table>
     <script>
       var newLine = true;
+      let value1;
+      let currentOperator;
 
       function digitBtnPressed(button) {
         if (newLine) {
@@ -55,6 +57,13 @@
       // AC button code, clears the display
       function btnACPressed() {
         document.getElementById("inputBox").value = 0;
+        newLine = true;
+      }
+      // Operator buttons event handler
+      function operatorBtnPressed(operator) {
+        currentOperator = operator;
+        value1 = parseInt(document.getElementById("inputBox").value);
+
         newLine = true;
       }
     </script>
